@@ -1,0 +1,12 @@
+mongo-data
+node_modules
+
+*.tmp
+**/dist/
+/build/
+config.ini
+
+.env
+*.bak
+*.log
+*.config

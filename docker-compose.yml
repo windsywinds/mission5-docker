@@ -1,0 +1,26 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./client  
+    ports:
+      - "5173:5173"  
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: ./server 
+    environment:
+      - MONGOURI=mongodb://mongo:27017
+    ports:
+      - "8001:8001" 
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017" 
+    #volumes:
+      #- ./mongo-data:/data/db  # Retain monogoDB data outside the container
