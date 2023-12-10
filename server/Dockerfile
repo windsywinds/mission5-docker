@@ -1,13 +1,20 @@
-#Each instruction in this file creates a new layer
-#Here we are getting our node as Base image
-FROM node:18-alpine
-#setting working directory in the container
+# Each instruction in this file creates a new layer
+
+# Set the base image to Node.js 20 with Alpine Linux
+FROM node:20-alpine
+
+# Set the working directory in the container
 WORKDIR /usr/src/app
-#copying the package.json file(contains dependencies) from project source dir to container dir
+
+# Copy the package.json and package-lock.json files (contains dependencies)
+# from the project source directory to the container directory
 COPY package*.json ./
-# installing the dependencies into the container
+
+# Install the dependencies into the container
 RUN npm install
-#copying the source code of Application into the container dir
+
+# Copy the source code of the application into the container directory
 COPY . .
-#command to run within the container
+
+# Command to run within the container when it starts
 CMD ["node", "server.js"]
