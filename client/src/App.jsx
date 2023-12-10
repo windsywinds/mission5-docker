@@ -4,13 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0);
   const [data, setData] = useState([]);
   const [userInput, setUserInput] = useState("");
 
 
   useEffect(() => {
-    //fetch database messages
+    //fetch database messages on load
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:8001/messages")
@@ -45,7 +44,8 @@ function App() {
         }
         const response = await fetch("http://localhost:8001/new", fetchOptions)
         const newData = await response.json();
-        setData(newData)
+        //update the data variable with the new data so it is displayed instantly - requires the route to also return the new data once it has added it to the database
+        setData(newData) 
 
       } catch (error) {
         console.error("There was an error posting the message:", error)
@@ -68,14 +68,17 @@ function App() {
           ))}
 
       </div>
-      <div>
+      <form  onSubmit={handleOnClick}>
         <h3>Add a new message:</h3>
-        <input value={userInput} onChange={handleOnChange}
-        ></input>
-        <button onClick={handleOnClick}>
+        <input 
+          value={userInput} 
+          required 
+          onChange={handleOnChange}
+        />
+        <button type="submit">
           Submit
         </button>
-      </div>
+      </form>
 
     </div>
   )
