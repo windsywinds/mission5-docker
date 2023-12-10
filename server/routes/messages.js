@@ -3,6 +3,8 @@ const router = express.Router();
 const { MongoClient } = require("mongodb");
 const dotenv = require('dotenv')
 
+//This route is responsible for providing the frontend client any database entries
+
 const MONGOURI = process.env.MONGOURI
 // Variables for connection to MongoDB
 const dbName = "HelloWorld";

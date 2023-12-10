@@ -3,8 +3,9 @@ const program = require("commander");
 const { prompt } = require("inquirer");
 const { MongoClient, ObjectId } = require("mongodb");
 
+//This CLI exists only so I could add an entry to the DB if needed for testing, prior to implementing the front end solution
 
-program.version("1.0.0").description("Client Management System");
+program.version("1.0.0").description("Database entry system");
 
 program
   .command("add")

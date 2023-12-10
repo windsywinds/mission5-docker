@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+//This route exists to confirm the backend server is operational and accessible for testing by directing the browser to it
+
 router.get("/", (req, res) => {
   const landPage = `
     <!DOCTYPE html>
