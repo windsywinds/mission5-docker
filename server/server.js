@@ -8,14 +8,10 @@ const messages = require("./routes/messages.js");
 const newMessage = require("./routes/newMessage.js");
 const landing = require("./routes/landing.js");
 
-
-
 const app = express();
 const PORT = process.env.PORT || 8001;
 
-
 //Middleware
-
 //tell cors to allow requests from all origins
 const corsOptions = {
   origin: '*',
