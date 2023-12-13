@@ -6,7 +6,7 @@ const dotenv = require('dotenv')
 
 //This route handles new entries added to the database by the frontend client
 
-const MONGOURI = process.env.MONGOURI
+const MONGOURI = process.env.MONGOURI || "mongodb://localhost:27017"
 // Variables for connection to MongoDB
 const dbName = "HelloWorld";
 const client = new MongoClient(MONGOURI);
